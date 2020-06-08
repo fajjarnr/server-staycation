@@ -1,12 +1,13 @@
-const Category = require("../model/Category");
-const Bank = require("../model/Bank");
-const Item = require("../model/Item");
-const Image = require("../model/Image");
-const Feature = require("../model/Feature");
-const Activity = require("../model/Activity");
-// const Booking = require("../model/Booking");
+const Category = require("../models/Category");
+const Bank = require("../models/Bank");
+const Item = require("../models/Item");
+const Image = require("../models/Image");
+const Feature = require("../models/Feature");
+const Activity = require("../models/Activity");
+// const Booking = require("../models/Booking");
 const fs = require("fs-extra");
 const path = require("path");
+const bycrpt = require("bcryptjs");
 
 module.exports = {
   viewDashboard: (req, res) => {
@@ -20,20 +21,21 @@ module.exports = {
       const category = await Category.find();
       const alertMessage = req.flash("alertMessage");
       const alertStatus = req.flash("alertStatus");
-      const alert = { message: alertMessage, alertStatus: alertStatus };
+      const alert = { message: alertMessage, status: alertStatus };
       res.render("admin/category/view_category", {
         category,
         alert,
         title: "Staycation | Category",
       });
     } catch (error) {
-      res.render("admin/category");
+      res.redirect("/admin/category");
     }
   },
 
   addCategory: async (req, res) => {
     try {
       const { name } = req.body;
+      // console.log(name);
       await Category.create({ name });
       req.flash("alertMessage", "Success Add Category");
       req.flash("alertStatus", "success");
@@ -64,7 +66,7 @@ module.exports = {
   deleteCategory: async (req, res) => {
     try {
       const { id } = req.params;
-      const category = await Category.findOne();
+      const category = await Category.findOne({ _id: id });
       await category.remove();
       req.flash("alertMessage", "Success Delete Category");
       req.flash("alertStatus", "success");
@@ -332,7 +334,7 @@ module.exports = {
           });
       }
       await Item.remove();
-      req.flash("alertMessage", "Success Delete Bank");
+      req.flash("alertMessage", "Success Delete Item");
       req.flash("alertStatus", "success");
       res.redirect("/admin/item");
     } catch (error) {

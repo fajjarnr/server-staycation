@@ -7,10 +7,10 @@
   aria-labelledby="exampleModalLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit Category</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Update Category</h5>
         <button
           type="button"
           class="close"
@@ -28,21 +28,17 @@
               type="text"
               class="form-control name"
               name="name"
-              placeholder="Enter Name"
+              placeholder="Enter name"
               required
             />
           </div>
-          <div class="modal-footer">
-            <input type="hidden" class="id" name="id" />
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="submit" class="btn btn-success">Update</button>
-          </div>
+        </div>
+        <div class="modal-footer">
+          <input type="hidden" class="id" name="id" />
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="submit" class="btn btn-primary">Update</button>
         </div>
       </form>
     </div>

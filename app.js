@@ -12,7 +12,7 @@ const cors = require("cors");
 const methodOverride = require("method-override");
 // mongoose
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/db_staycation", {
+mongoose.connect("mongodb://localhost/db_staycation", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,

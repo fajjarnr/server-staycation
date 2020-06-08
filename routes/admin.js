@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const adminController = require("../controller/adminController");
-const { uploadSingle, uploadMultiple } = require("../middleware/multer");
+const adminController = require("../controllers/adminController");
+const { uploadSingle, uploadMultiple } = require("../middlewares/multer");
 
 router.get("/dashboard", adminController.viewDashboard);
 
