@@ -12,15 +12,16 @@ const cors = require("cors");
 const methodOverride = require("method-override");
 // mongoose
 const mongoose = require("mongoose");
-mongoose.connect(
-  "mongodb+srv://fajjarnr:staycation@cluster0-igjkz.mongodb.net/db_staycation?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  }
-);
+
+const mongoAtlas =
+  "mongodb+srv://fajjarnr:staycation@cluster0.00xsy.mongodb.net/db_staycation?retryWrites=true&w=majority";
+
+mongoose.connect(mongoAtlas, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+});
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");

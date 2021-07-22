@@ -1,9 +1,13 @@
 var seeder = require("mongoose-seed");
 var mongoose = require("mongoose");
+const { connect } = require("mongoose-seed");
+
+const db =
+  "mongodb+srv://fajjarnr:staycation@cluster0.00xsy.mongodb.net/db_staycation?retryWrites=true&w=majority";
 
 // Connect to MongoDB via Mongoose
 seeder.connect(
-  "mongodb+srv://fajjarnr:staycation@cluster0-igjkz.mongodb.net/db_staycation?retryWrites=true&w=majority",
+  db,
   {
     useNewUrlParser: true,
     useCreateIndex: true,
