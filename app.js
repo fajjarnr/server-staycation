@@ -25,6 +25,7 @@ mongoose.connect(mongoAtlas, {
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+
 // router admin
 var adminRouter = require("./routes/admin");
 var apiRouter = require("./routes/api");
